@@ -1,11 +1,9 @@
-import React from 'react'
+import type { NextPage } from "next";
 
-type Props = {}
+type Props = {};
 
-const Home = (props: Props) => {
-  return (
-    <div>Home</div>
-  )
-}
+const Home: NextPage<Props> = () => {
+  return <div>Home</div>;
+};
 
-export default Home
+export default Home;
