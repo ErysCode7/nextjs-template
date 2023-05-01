@@ -1,13 +1,5 @@
 import axios from "axios";
-
-const baseUrl = `https://jsonplaceholder.typicode.com/todos`;
-
-type Todos = {
-  userId?: number;
-  id?: number;
-  title: string;
-  completed: boolean;
-};
+import { Todos, baseUrl } from "../";
 
 //axios way
 

@@ -1,54 +1,63 @@
-import axios from "axios";
-
-const baseUrl = `https://jsonplaceholder.typicode.com/todos`;
-
-type Todos = {
-  userId?: number;
-  id?: number;
-  title: string;
-  completed: boolean;
-};
+import { Todos, baseUrl } from "../";
 
 //fetch way
 
 //create
-const axiosCreateTodos = async (todo: Todos) => {
+const fetchCreateTodos = async (todo: Todos) => {
   try {
-    const response = await axios.post(`${baseUrl}`, todo);
-    return response.data;
+    const response = await fetch(`${baseUrl}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todo),
+    });
+    const data = await response.json();
+    return data;
   } catch (err) {
     return err;
   }
 };
 
 // READ
-const axiosGetTodos = async (): Promise<Todos[] | unknown> => {
+const fetchGetTodos = async (): Promise<Todos[] | unknown> => {
   try {
-    const response = await axios.get(baseUrl);
-    return response.data;
+    const response = await fetch(baseUrl);
+    const data = await response.json();
+    return data;
   } catch (err) {
     return err;
   }
 };
 
 // UPDATE
-const axiosUpdateTodo = async (id: string | number, todo: Todos) => {
+const fetchUpdateTodo = async (id: string | number, todo: Todos) => {
   try {
-    const response = await axios.put(`${baseUrl}/${id}`, todo);
-    return response.data;
+    const response = await fetch(`${baseUrl}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todo),
+    });
+    const data = await response.json();
+    return data;
   } catch (err) {
     return err;
   }
 };
 
 //delete
-const axiosDeleteTodo = async (id: string | number) => {
+const fetchDeleteTodo = async (id: string | number) => {
   try {
-    const response = await axios.delete(`${baseUrl}/${id}`);
-    return response.data;
+    const response = await fetch(`${baseUrl}/${id}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    return data;
   } catch (err) {
     return err;
   }
 };
 
-export { axiosCreateTodos, axiosGetTodos, axiosUpdateTodo, axiosDeleteTodo };
+export { fetchCreateTodos, fetchGetTodos, fetchUpdateTodo, fetchDeleteTodo };
