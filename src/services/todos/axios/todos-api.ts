@@ -4,7 +4,7 @@ import { Todos, baseUrl } from "../";
 //axios way
 
 //create
-const axiosCreateTodos = async (todo: Todos) => {
+const axiosCreateTodos = async (todo: Todos): Promise<Todos[] | unknown> => {
   try {
     const response = await axios.post(`${baseUrl}`, todo);
     return response.data;
@@ -34,7 +34,7 @@ const axiosUpdateTodo = async (id: string | number, todo: Todos) => {
 };
 
 //delete
-const axiosDeleteTodo = async (id: string | number) => {
+const axiosDeleteTodo = async (id: string | number): Promise<Todos[] | unknown> => {
   try {
     const response = await axios.delete(`${baseUrl}/${id}`);
     return response.data;

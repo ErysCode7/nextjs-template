@@ -3,7 +3,7 @@ import { Todos, baseUrl } from "../";
 //fetch way
 
 //create
-const fetchCreateTodos = async (todo: Todos) => {
+const fetchCreateTodos = async (todo: Todos): Promise<Todos[] | unknown> => {
   try {
     const response = await fetch(`${baseUrl}`, {
       method: "POST",
@@ -31,7 +31,10 @@ const fetchGetTodos = async (): Promise<Todos[] | unknown> => {
 };
 
 // UPDATE
-const fetchUpdateTodo = async (id: string | number, todo: Todos) => {
+const fetchUpdateTodo = async (
+  id: string | number,
+  todo: Todos
+): Promise<Todos[] | unknown> => {
   try {
     const response = await fetch(`${baseUrl}/${id}`, {
       method: "PUT",
@@ -48,7 +51,9 @@ const fetchUpdateTodo = async (id: string | number, todo: Todos) => {
 };
 
 //delete
-const fetchDeleteTodo = async (id: string | number) => {
+const fetchDeleteTodo = async (
+  id: string | number
+): Promise<Todos[] | unknown> => {
   try {
     const response = await fetch(`${baseUrl}/${id}`, {
       method: "DELETE",
