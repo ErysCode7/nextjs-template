@@ -1,7 +1,17 @@
 {
   "name": "nextjs-template",
   "version": "0.1.0",
+  "repository": "https://github.com/ErysCode7/nextjs-template",
   "private": true,
+  "contributors": [
+    {
+      "name": "Erys Mozo",
+      "url": "https://github.com/ErysCode7"
+    }
+  ],
+  "description": "Custom Template for Next TypeScript",
+  "author": "Erys Mozo <mozoerys@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
