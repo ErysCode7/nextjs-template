@@ -1,12 +1,20 @@
+import { ROUTES } from "@/utils/constant";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 
 type Props = {};
 
 const Footer: NextPage<Props> = () => {
+  const router = useRouter();
+
   const date = new Date().getFullYear();
 
   return (
-    <footer className="w-full h-20 shadow-sm bg-white absolute bottom-0">
+    <footer
+      className={`w-full h-20 shadow-sm bg-white ${
+        router.pathname !== ROUTES.PRODUCTS ? "absolute bottom-0" : 'static'
+      } `}
+    >
       <div className="flex items-center  m-auto h-full w-[90%] lg:w-[85%]">
         <h2 className="text-gray-500 text-xs sm:text-base">
           Nextjs Template <span className="text-blue-500">©{date}.</span> All
