@@ -27,13 +27,14 @@ const ProductDetails: NextPage<Props> = () => {
   }
 
   return (
-    <div className="flex items-center justify-between md:h-screen w-full mt-52 md:mt-0">
+    <div className="flex items-center justify-between md:h-[calc(100vh_-_80px)] w-full mt-52 md:mt-0">
       <div className="w-4/5 m-auto flex flex-col md:flex-row gap-5 sm:gap-10">
         <div className="relative h-[250px] w-full sm:h-[385px] sm:flex-1">
           <Image
-            src={productDetails?.image || ""}
-            alt={productDetails?.title || "No image"}
+            src={productDetails?.image ?? ""}
+            alt={productDetails?.title ?? "No image"}
             fill
+            className="rounded-full"
           />
         </div>
         <div className="flex-[1.5]">
