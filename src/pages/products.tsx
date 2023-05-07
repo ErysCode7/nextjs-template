@@ -1,14 +1,13 @@
 import Product from "@/components/product/product";
-import {
-  axiosGetProducts,
-  useProducts,
-} from "@/services/products/axios/products-api";
+import { UseProductsApi } from "@/services/products/axios/products-api";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import type { GetServerSideProps, NextPage } from "next";
 
 type Props = {};
 
 const Products: NextPage<Props> = () => {
+  const { axiosGetProducts, useProducts } = UseProductsApi();
+
   const { products, isLoading } = useProducts();
 
   // const { data: products, isLoading } = useQuery<TProducts[]>({
@@ -37,6 +36,8 @@ export default Products;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const queryClient = new QueryClient();
+
+  const { axiosGetProducts } = UseProductsApi();
 
   //axios
   await queryClient.prefetchQuery({

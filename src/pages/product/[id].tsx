@@ -1,7 +1,4 @@
-import {
-  axiosGetProductDetails,
-  useProductDetails,
-} from "@/services/products/axios/products-api";
+import { UseProductsApi } from "@/services/products/axios/products-api";
 import { ROUTES } from "@/utils/constant";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import type { GetServerSideProps, NextPage } from "next";
@@ -14,6 +11,8 @@ type Props = {};
 const ProductDetails: NextPage<Props> = () => {
   const router = useRouter();
   const productID = router?.query?.id as string | number;
+
+  const { useProductDetails } = UseProductsApi();
 
   const { productDetails, isLoadingProductDetails } =
     useProductDetails(productID);
@@ -65,8 +64,8 @@ const ProductDetails: NextPage<Props> = () => {
               ${productDetails?.price}
             </p>
             <div className="mt-3">
-              <p>Count: {productDetails?.rating.count}</p>
-              <p>Rate: {productDetails?.rating.rate}</p>
+              <p>Count: {productDetails?.rating?.count}</p>
+              <p>Rate: {productDetails?.rating?.rate}</p>
             </div>
           </div>
         </div>
@@ -81,6 +80,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const productID = context?.params?.id as string;
 
   const queryClient = new QueryClient();
+
+  const { axiosGetProductDetails } = UseProductsApi();
 
   await queryClient.prefetchQuery({
     queryKey: ["product", productID],
