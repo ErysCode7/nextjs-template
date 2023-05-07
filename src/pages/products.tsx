@@ -1,7 +1,9 @@
 import Product from "@/components/product/product";
-import { Products as TProducts } from "@/services/products/";
-import { axiosGetProducts, useProducts } from "@/services/products/axios/products-api";
-import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
+import {
+  axiosGetProducts,
+  useProducts,
+} from "@/services/products/axios/products-api";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
 import type { GetServerSideProps, NextPage } from "next";
 
 type Props = {};
