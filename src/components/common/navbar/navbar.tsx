@@ -1,3 +1,4 @@
+import { ROUTES } from "@/utils/constant";
 import type { NextPage } from "next";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useHooks } from "./hooks";
@@ -27,13 +28,16 @@ const NavLinks: NextPage = () => {
 };
 
 const Navbar: NextPage<Props> = () => {
-  const { showMobileNavbar, setShowMobileNavbar } = useHooks();
+  const { showMobileNavbar, setShowMobileNavbar, router } = useHooks();
 
   return (
     <nav className="w-full h-20 shadow-sm bg-white">
       <div className="flex items-center justify-between m-auto h-full w-[90%] lg:w-[85%]">
         <div>
-          <h2 className="text-base md:text-xl lg:text-3xl text-blue-500 font-bold">
+          <h2
+            onClick={() => router.push(ROUTES.HOME)}
+            className="text-base md:text-xl lg:text-3xl text-blue-500 font-bold cursor-pointer"
+          >
             Next.js Template
           </h2>
         </div>

@@ -12,10 +12,10 @@ const Footer: NextPage<Props> = () => {
   return (
     <footer
       className={`w-full h-20 shadow-sm bg-white ${
-        router.pathname !== ROUTES.PRODUCTS ? "absolute bottom-0" : 'static'
+        router.pathname !== ROUTES.PRODUCTS ? "md:absolute bottom-0" : 'static'
       } `}
     >
-      <div className="flex items-center  m-auto h-full w-[90%] lg:w-[85%]">
+      <div className="flex items-center m-auto h-full w-[90%] lg:w-[85%]">
         <h2 className="text-gray-500 text-xs sm:text-base">
           Nextjs Template <span className="text-blue-500">©{date}.</span> All
           rights reserved
