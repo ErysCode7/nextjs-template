@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout/layout";
+import { AppContextProvider } from "@/context/app-context";
 import "@/styles/globals.css";
 import {
   Hydrate,
@@ -40,9 +41,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <ReactQueryDevtools initialIsOpen={false} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AppContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AppContextProvider>
       </Hydrate>
     </QueryClientProvider>
   );
