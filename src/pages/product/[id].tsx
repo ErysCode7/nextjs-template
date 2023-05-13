@@ -1,6 +1,11 @@
 import { UseProductsApi } from "@/services/products/axios/products-api";
 import { ROUTES } from "@/utils/constant";
-import { QueryClient, dehydrate } from "@tanstack/react-query";
+import {
+  QueryClient,
+  dehydrate,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import type { GetServerSideProps, NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -8,14 +13,48 @@ import { BsArrowLeftShort } from "react-icons/bs";
 
 type Props = {};
 
-const ProductDetails: NextPage<Props> = () => {
+const ProductDetailsPage: NextPage<Props> = () => {
+  const queryClient = useQueryClient();
+
   const router = useRouter();
   const productID = router?.query?.id as string | number;
 
-  const { useProductDetails } = UseProductsApi();
+  const {
+    useProductDetails,
+    axiosCreateProduct,
+    axiosDeleteProduct,
+    axiosUpdateProduct,
+  } = UseProductsApi();
 
   const { productDetails, isLoadingProductDetails } =
     useProductDetails(productID);
+
+  //create a single product
+  const { mutate: addProductMutation } = useMutation(axiosCreateProduct, {
+    onSuccess: () => {
+      //when this succeed the query key invalidate meaning it triggers refetch
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+    },
+    onError: () => {},
+  });
+
+  //update a single product
+  const { mutate: updateProductMutation } = useMutation(axiosUpdateProduct, {
+    onSuccess: () => {
+      //when this succeed the query key invalidate meaning it triggers refetch
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+    },
+    onError: () => {},
+  });
+
+  //delete a single product
+  const { mutate: deleteProductMutation } = useMutation(axiosDeleteProduct, {
+    onSuccess: () => {
+      //when this succeed the query key invalidate meaning it triggers refetch
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+    },
+    onError: () => {},
+  });
 
   if (isLoadingProductDetails) {
     return (
@@ -74,7 +113,7 @@ const ProductDetails: NextPage<Props> = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const productID = context?.params?.id as string;

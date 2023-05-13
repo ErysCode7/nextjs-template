@@ -16,6 +16,10 @@ import "../styles/globals.css";
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
+  NProgress.configure({
+    showSpinner: false, // Disable the spinner
+  });
+
   useEffect(() => {
     const handleRouteStart = () => NProgress.start();
     const handleRouteDone = () => NProgress.done();
