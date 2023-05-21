@@ -61,7 +61,7 @@ Feel free to modify the folder structure to fit the needs of your project.
 1. Clone the repo
 
    ```sh
-   git clone git@github.com:ErysCode7/dictionary-app.git
+   git clone git@github.com:ErysCode7/nextjs-template.git
    ```
 
 2. Install NPM packages
