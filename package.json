@@ -27,6 +27,8 @@
     "axios": "^1.4.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
+    "millify": "^6.1.0",
+    "moment": "^2.29.4",
     "next": "13.3.4",
     "nprogress": "^0.2.0",
     "prettier": "^2.8.8",
