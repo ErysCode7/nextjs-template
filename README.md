@@ -76,7 +76,9 @@ Feel free to modify the folder structure to fit the needs of your project.
    npm run dev
    ```
 
-4. ```sh
+4. Navigate to
+
+   ```sh
    http://localhost:3000
    ```
 
