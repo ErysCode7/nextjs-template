@@ -1,7 +1,7 @@
-import { Products } from "@/services";
-import type { NextPage } from "next";
-import Image from "next/image";
-import { useRouter } from "next/router";
+import { Products } from '@/services';
+import type { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 type Props = {
   product: Products;
@@ -23,13 +23,9 @@ const Product: NextPage<Props> = ({ product }) => {
           onClick={() => router.push(`/product/${product?.id}`)}
           className="text-sm lg:text-base font-bold text-blue-500 lg:cursor-pointer hover:underline"
         >
-          {product.title.length > 70
-            ? `${product.title.slice(0, 70)}...`
-            : product.title}
+          {product.title.length > 70 ? `${product.title.slice(0, 70)}...` : product.title}
         </h2>
-        <p className="text-sm text-gray-500 absolute bottom-5">
-          ${product.price}
-        </p>
+        <p className="text-sm text-gray-500 absolute bottom-5">${product.price}</p>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-export const baseUrl = "https://fakestoreapi.com/products";
+export const baseUrl = 'https://fakestoreapi.com/products';
 
 export type Products = {
   id?: number;

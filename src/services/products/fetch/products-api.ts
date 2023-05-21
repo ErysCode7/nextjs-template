@@ -1,10 +1,5 @@
-import {
-  QueryKey,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
-import { Products, baseUrl } from "../..";
+import { QueryKey, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { Products, baseUrl } from '../..';
 
 export const UseProductsApi = () => {
   const queryClient = useQueryClient();
@@ -21,9 +16,7 @@ export const UseProductsApi = () => {
   };
 
   //get a single product
-  const fetchGetProductDetails = async (
-    id: string | number
-  ): Promise<Products | unknown> => {
+  const fetchGetProductDetails = async (id: string | number): Promise<Products | unknown> => {
     try {
       const response = await fetch(`${baseUrl}/${id}`);
       const data = await response.json();
@@ -37,9 +30,9 @@ export const UseProductsApi = () => {
   const fetchCreateProduct = async (product: Products) => {
     try {
       const response = await fetch(`${baseUrl}`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(product),
       });
@@ -54,9 +47,9 @@ export const UseProductsApi = () => {
   const fetchUpdateProduct = async (product: Products) => {
     try {
       const response = await fetch(`${baseUrl}/${product?.id}`, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(product),
       });
@@ -83,7 +76,7 @@ export const UseProductsApi = () => {
   //api call to get all products
   const useProducts = () => {
     const { data: products, isLoading } = useQuery<Products[]>({
-      queryKey: ["products"],
+      queryKey: ['products'],
       queryFn: () => fetchGetProducts(),
     });
 
@@ -92,11 +85,12 @@ export const UseProductsApi = () => {
 
   //api call to get a single product
   const useProductDetails = (productId: string | number) => {
-    const { data: productDetails, isLoading: isLoadingProductDetails } =
-      useQuery<Products | unknown>({
-        queryKey: ["product", productId],
-        queryFn: () => fetchGetProductDetails(productId),
-      } as { queryKey: QueryKey });
+    const { data: productDetails, isLoading: isLoadingProductDetails } = useQuery<
+      Products | unknown
+    >({
+      queryKey: ['product', productId],
+      queryFn: () => fetchGetProductDetails(productId),
+    } as { queryKey: QueryKey });
 
     return { productDetails, isLoadingProductDetails };
   };
@@ -105,7 +99,7 @@ export const UseProductsApi = () => {
   const addProductMutation = useMutation(fetchCreateProduct, {
     onSuccess: () => {
       //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {},
   });
@@ -114,7 +108,7 @@ export const UseProductsApi = () => {
   const updateProductMutation = useMutation(fetchUpdateProduct, {
     onSuccess: () => {
       //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {},
   });
@@ -123,7 +117,7 @@ export const UseProductsApi = () => {
   const deleteProductMutation = useMutation(fetchDeleteProduct, {
     onSuccess: () => {
       //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {},
   });

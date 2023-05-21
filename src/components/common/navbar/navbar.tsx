@@ -1,7 +1,7 @@
-import { ROUTES } from "@/utils/constant";
-import type { NextPage } from "next";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { useHooks } from "./hooks";
+import { ROUTES } from '@/utils/constant';
+import type { NextPage } from 'next';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { useHooks } from './hooks';
 
 type Props = {};
 
@@ -10,13 +10,13 @@ const NavLinks: NextPage = () => {
 
   return (
     <>
-      {routes.map((route) => {
+      {routes.map(route => {
         return (
           <li
             onClick={() => router.push(route.routes)}
             key={route.id}
             className={`lg:cursor-pointer text-gray-500 hover:text-blue-500 lg:mt-0 h-20 flex items-center justify-center w-full text-center ${
-              pathname === route.routes ? "bg-gray-100 lg:bg-transparent" : null
+              pathname === route.routes ? 'bg-gray-100 lg:bg-transparent' : null
             }`}
           >
             {route.route}
@@ -45,7 +45,7 @@ const Navbar: NextPage<Props> = () => {
         {/* MOBILE TO 1023px */}
         <ul
           className={`absolute w-60 sm:w-96 z-50 ${
-            showMobileNavbar ? "left-0" : "left-[-999px]"
+            showMobileNavbar ? 'left-0' : 'left-[-999px]'
           } top-0 bottom-0 transition-all duration-500 lg:hidden bg-white shadow-md flex flex-col items-center`}
         >
           <NavLinks />
@@ -58,9 +58,7 @@ const Navbar: NextPage<Props> = () => {
 
         <div
           className="lg:hidden"
-          onClick={() =>
-            setShowMobileNavbar((prevMobileNavbar) => !prevMobileNavbar)
-          }
+          onClick={() => setShowMobileNavbar(prevMobileNavbar => !prevMobileNavbar)}
         >
           <GiHamburgerMenu />
         </div>

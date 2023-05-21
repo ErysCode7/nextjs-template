@@ -1,11 +1,4 @@
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from 'react';
 
 type Props = {
   children: ReactNode;

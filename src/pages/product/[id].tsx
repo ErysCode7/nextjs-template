@@ -1,15 +1,10 @@
-import { UseProductsApi } from "@/services/products/axios/products-api";
-import { ROUTES } from "@/utils/constant";
-import {
-  QueryClient,
-  dehydrate,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
-import type { GetServerSideProps, NextPage } from "next";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { BsArrowLeftShort } from "react-icons/bs";
+import { UseProductsApi } from '@/services/products/axios/products-api';
+import { ROUTES } from '@/utils/constant';
+import { QueryClient, dehydrate, useMutation, useQueryClient } from '@tanstack/react-query';
+import type { GetServerSideProps, NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 type Props = {};
 
@@ -19,21 +14,16 @@ const ProductDetailsPage: NextPage<Props> = () => {
   const router = useRouter();
   const productID = router?.query?.id as string | number;
 
-  const {
-    useProductDetails,
-    axiosCreateProduct,
-    axiosDeleteProduct,
-    axiosUpdateProduct,
-  } = UseProductsApi();
+  const { useProductDetails, axiosCreateProduct, axiosDeleteProduct, axiosUpdateProduct } =
+    UseProductsApi();
 
-  const { productDetails, isLoadingProductDetails } =
-    useProductDetails(productID);
+  const { productDetails, isLoadingProductDetails } = useProductDetails(productID);
 
   //create a single product
   const { mutate: addProductMutation } = useMutation(axiosCreateProduct, {
     onSuccess: () => {
       //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {},
   });
@@ -42,7 +32,7 @@ const ProductDetailsPage: NextPage<Props> = () => {
   const { mutate: updateProductMutation } = useMutation(axiosUpdateProduct, {
     onSuccess: () => {
       //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {},
   });
@@ -51,7 +41,7 @@ const ProductDetailsPage: NextPage<Props> = () => {
   const { mutate: deleteProductMutation } = useMutation(axiosDeleteProduct, {
     onSuccess: () => {
       //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: () => {},
   });
@@ -59,9 +49,7 @@ const ProductDetailsPage: NextPage<Props> = () => {
   if (isLoadingProductDetails) {
     return (
       <div className="flex items-center h-screen w-full justify-center">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-          LOADING......
-        </h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">LOADING......</h1>
       </div>
     );
   }
@@ -81,22 +69,18 @@ const ProductDetailsPage: NextPage<Props> = () => {
         <div className="w-4/5 m-auto flex flex-col md:flex-row gap-5 sm:gap-10">
           <div className="relative h-[250px] w-full sm:h-[385px] sm:flex-1">
             <Image
-              src={productDetails?.image ?? ""}
-              alt={productDetails?.title ?? "No image"}
+              src={productDetails?.image ?? ''}
+              alt={productDetails?.title ?? 'No image'}
               fill
               className="object-contain md:object-fill rounded"
             />
           </div>
           <div className="flex-[1.5]">
-            <h2 className="font-bold text-xl sm:text-2xl lg:text-4xl">
-              {productDetails?.title}
-            </h2>
+            <h2 className="font-bold text-xl sm:text-2xl lg:text-4xl">{productDetails?.title}</h2>
             <p className="text-gray-500 mt-3">{productDetails?.description}</p>
             <div className="flex items-center gap-2 my-2">
               <h4 className="text-base sm:text-xl">Category</h4>
-              <p className="capitalize text-base sm:text-xl">
-                {productDetails?.category}
-              </p>
+              <p className="capitalize text-base sm:text-xl">{productDetails?.category}</p>
             </div>
 
             <p className="text-green-500 text-base sm:text-xl md:text-2xl">
@@ -115,7 +99,7 @@ const ProductDetailsPage: NextPage<Props> = () => {
 
 export default ProductDetailsPage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async context => {
   const productID = context?.params?.id as string;
 
   const queryClient = new QueryClient();
@@ -123,7 +107,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { axiosGetProductDetails } = UseProductsApi();
 
   await queryClient.prefetchQuery({
-    queryKey: ["product", productID],
+    queryKey: ['product', productID],
     queryFn: () => axiosGetProductDetails(productID),
   });
 

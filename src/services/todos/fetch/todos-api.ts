@@ -1,4 +1,4 @@
-import { Todos, baseUrl } from "../";
+import { Todos, baseUrl } from '../';
 
 //fetch way
 
@@ -6,9 +6,9 @@ import { Todos, baseUrl } from "../";
 const fetchCreateTodos = async (todo: Todos): Promise<Todos[] | unknown> => {
   try {
     const response = await fetch(`${baseUrl}`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(todo),
     });
@@ -31,15 +31,12 @@ const fetchGetTodos = async (): Promise<Todos[] | unknown> => {
 };
 
 // UPDATE
-const fetchUpdateTodo = async (
-  id: string | number,
-  todo: Todos
-): Promise<Todos[] | unknown> => {
+const fetchUpdateTodo = async (id: string | number, todo: Todos): Promise<Todos[] | unknown> => {
   try {
     const response = await fetch(`${baseUrl}/${id}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(todo),
     });
@@ -51,12 +48,10 @@ const fetchUpdateTodo = async (
 };
 
 //delete
-const fetchDeleteTodo = async (
-  id: string | number
-): Promise<Todos[] | unknown> => {
+const fetchDeleteTodo = async (id: string | number): Promise<Todos[] | unknown> => {
   try {
     const response = await fetch(`${baseUrl}/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
     const data = await response.json();
     return data;

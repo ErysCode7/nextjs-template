@@ -1,5 +1,5 @@
-import axios from "axios";
-import { Todos, baseUrl } from "../";
+import axios from 'axios';
+import { Todos, baseUrl } from '../';
 
 //axios way
 

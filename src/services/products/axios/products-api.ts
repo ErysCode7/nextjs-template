@@ -1,6 +1,6 @@
-import { QueryKey, useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { Products, baseUrl } from "../..";
+import { QueryKey, useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { Products, baseUrl } from '../..';
 
 export const UseProductsApi = () => {
   //get all products
@@ -14,9 +14,7 @@ export const UseProductsApi = () => {
   };
 
   //get a single product
-  const axiosGetProductDetails = async (
-    id: string | number
-  ): Promise<Products | unknown> => {
+  const axiosGetProductDetails = async (id: string | number): Promise<Products | unknown> => {
     try {
       const response = await axios.get(`${baseUrl}/${id}`);
       return response.data;
@@ -60,7 +58,7 @@ export const UseProductsApi = () => {
   //api call to get all products
   const useProducts = () => {
     const { data: products, isLoading } = useQuery<Products[]>({
-      queryKey: ["products"],
+      queryKey: ['products'],
       queryFn: () => axiosGetProducts(),
     });
 
@@ -69,11 +67,10 @@ export const UseProductsApi = () => {
 
   //api call to get a single product
   const useProductDetails = (productId: string | number) => {
-    const { data: productDetails, isLoading: isLoadingProductDetails } =
-      useQuery<Products>({
-        queryKey: ["product", productId],
-        queryFn: () => axiosGetProductDetails(productId),
-      } as { queryKey: QueryKey });
+    const { data: productDetails, isLoading: isLoadingProductDetails } = useQuery<Products>({
+      queryKey: ['product', productId],
+      queryFn: () => axiosGetProductDetails(productId),
+    } as { queryKey: QueryKey });
 
     return { productDetails, isLoadingProductDetails };
   };

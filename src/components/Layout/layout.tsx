@@ -1,6 +1,6 @@
-import Head from "next/head";
-import { ReactNode } from "react";
-import { Footer, Navbar } from "../common";
+import Head from 'next/head';
+import { ReactNode } from 'react';
+import { Footer, Navbar } from '../common';
 
 type Props = {
   children: ReactNode;
