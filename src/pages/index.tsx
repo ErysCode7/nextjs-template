@@ -1,4 +1,5 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import { getSession } from 'next-auth/react';
 
 type Props = {};
 
@@ -6,10 +7,30 @@ const Home: NextPage<Props> = () => {
   return (
     <div className="flex gap-2 md:gap-3 lg:gap-5 items-center justify-center h-[calc(100vh_-_80px)]">
       <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-blue-500">
-        Next.js Template
+        Next.js Template haha
       </h1>
     </div>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  const session = await getSession(context);
+
+  //NEXT-AUTH SSR SAMPLE
+
+  // if (!session) {
+  //   return {
+  //     props: { session },
+  //     redirect: {
+  //       destination: '/todos',
+  //       permanent: false,
+  //     },
+  //   };
+  // }
+
+  return {
+    props: {},
+  };
+};

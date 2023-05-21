@@ -3,6 +3,7 @@ import { AppContextProvider } from '@/context/app-context';
 import '@/styles/globals.css';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -10,7 +11,7 @@ import 'nprogress/nprogress.css';
 import { useEffect, useState } from 'react';
 import '../styles/globals.css';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
   NProgress.configure({
@@ -34,15 +35,17 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <AppContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </AppContextProvider>
-      </Hydrate>
-    </QueryClientProvider>
+    <SessionProvider session={session}>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <AppContextProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </AppContextProvider>
+        </Hydrate>
+      </QueryClientProvider>
+    </SessionProvider>
   );
 }
