@@ -27,6 +27,7 @@
     "axios": "^1.4.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
+    "framer-motion": "^10.12.12",
     "millify": "^6.1.0",
     "moment": "^2.29.4",
     "next": "13.3.4",
