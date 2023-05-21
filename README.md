@@ -18,23 +18,23 @@ This is a Next.js template designed to provide a starting point for building web
 
 ## Features
 
-    Server-side rendering (SSR): Next.js allows you to render React components on the server, providing improved performance and SEO capabilities.
+Server-side rendering (SSR): Next.js allows you to render React components on the server, providing improved performance and SEO capabilities.
 
-    Static site generation (SSG): You can generate static HTML pages for improved performance and easy deployment to content delivery networks (CDNs).
+Static site generation (SSG): You can generate static HTML pages for improved performance and easy deployment to content delivery networks (CDNs).
 
-    TypeScript support: The template is preconfigured with TypeScript, enabling static type-checking and improved code integrity.
+TypeScript support: The template is preconfigured with TypeScript, enabling static type-checking and improved code integrity.
 
-    Routing: Next.js provides a powerful routing system that allows you to define dynamic routes and handle navigation between pages easily.
+Routing: Next.js provides a powerful routing system that allows you to define dynamic routes and handle navigation between pages easily.
 
-    Tailwind CSS: Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.
+Tailwind CSS: Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.
 
-    TanStack Query: data-fetching library for web applications, but in more technical terms, it makes fetching, caching, synchronizing and updating server state in your web applications a breeze. One of the best libraries for fetching, caching, synchronizing, and updating asynchronous data in your React app
+TanStack Query: data-fetching library for web applications, but in more technical terms, it makes fetching, caching, synchronizing and updating server state in your web applications a breeze. One of the best libraries for fetching, caching, synchronizing, and updating asynchronous data in your React app
 
-    Hot Module Replacement (HMR): During development, Next.js supports HMR, which allows you to see changes in real-time without refreshing the entire page.
+Hot Module Replacement (HMR): During development, Next.js supports HMR, which allows you to see changes in real-time without refreshing the entire page.
 
-    API routes: Next.js allows you to define serverless API endpoints directly within your application, making it easy to create backend functionality.
+API routes: Next.js allows you to define serverless API endpoints directly within your application, making it easy to create backend functionality.
 
-    Code splitting: Next.js automatically splits your code into smaller chunks, improving initial page load times and optimizing resource usage.
+Code splitting: Next.js automatically splits your code into smaller chunks, improving initial page load times and optimizing resource usage.
 
 ## Folder structure
 
