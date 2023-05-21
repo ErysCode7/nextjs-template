@@ -1,5 +1,5 @@
 import { QueryKey, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { Products, baseUrl } from '../..';
+import { Products, baseUrl } from '..';
 
 export const UseProductsApi = () => {
   const queryClient = useQueryClient();

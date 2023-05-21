@@ -1,4 +1,4 @@
-import { Products } from '@/services';
+import { Products } from '@/services/products';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';

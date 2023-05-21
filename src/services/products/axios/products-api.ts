@@ -1,6 +1,6 @@
 import { QueryKey, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { Products, baseUrl } from '../..';
+import { Products, baseUrl } from '..';
 
 export const UseProductsApi = () => {
   //get all products
