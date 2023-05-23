@@ -4,9 +4,9 @@ import { Products, baseUrl } from '..';
 
 export const UseProductsApi = () => {
   //get all products
-  const axiosGetProducts = async (): Promise<Products[]> => {
+  const axiosGetProducts = async (params?: string): Promise<Products[]> => {
     try {
-      const response = await axios.get(`${baseUrl}`);
+      const response = await axios.get(`${baseUrl}${params ? params : ''}`);
       return response.data;
     } catch (err) {
       return [];
@@ -56,10 +56,11 @@ export const UseProductsApi = () => {
   // ----- API CALL REACT QUERY -----
 
   //api call to get all products
-  const useProducts = () => {
+  const useProducts = (params?: string) => {
+    // Everytime your filters change, react´query will refetch data, if your filters don't change, your data will remain
     const { data: products, isLoading } = useQuery<Products[]>({
-      queryKey: ['products'],
-      queryFn: () => axiosGetProducts(),
+      queryKey: ['products', params],
+      queryFn: () => axiosGetProducts(params),
     });
 
     return { products, isLoading };
