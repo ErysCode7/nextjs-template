@@ -42,6 +42,7 @@ export const authOptions: NextAuthOptions = {
       // @ts-ignore
       scope: 'read:user',
     }),
+    //https://console.cloud.google.com/apis/credentials?project=web-application-367110
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,

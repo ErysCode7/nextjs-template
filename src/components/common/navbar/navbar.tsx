@@ -1,5 +1,6 @@
 import { ROUTES } from '@/utils/constant';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useHooks } from './hooks';
 
@@ -34,12 +35,19 @@ const Navbar: NextPage<Props> = () => {
     <nav className="w-full h-20 shadow-sm bg-white">
       <div className="flex items-center justify-between m-auto h-full w-[90%] lg:w-[85%]">
         <div>
-          <h2
+          {/* <h2
             onClick={() => router.push(ROUTES.HOME)}
             className="text-base md:text-xl lg:text-3xl text-blue-500 font-bold cursor-pointer"
           >
             Next.js Template
-          </h2>
+          </h2> */}
+          <Image
+            src={'/next.svg'}
+            alt="next image"
+            width={120}
+            height={120}
+            onClick={() => router.push(ROUTES.HOME)}
+          />
         </div>
 
         {/* MOBILE TO 1023px */}
