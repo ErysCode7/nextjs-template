@@ -43,13 +43,14 @@ The template follows a typical Next.js project structure:
 - `public` - Store static files (images, fonts, etc.) in this directory.
 - `src` - Main source code.
 - `src/pages` - This folder contains your application's pages. Each file represents a route in your application.
+- `src/pages/api` - Define your serverless API routes in this folder.
+- `src/modules` - Serves as a home for reusable and modular code components.
 - `src/components` - Place reusable React components in this folder.
 - `src/styles` - Contains global styles.
 - `src/services` - API calls (e.g `products`, `todos`, `etc.`).
 - `src/utils` - Helper functions/utilities (e.g. `constants`, `types`).
 - `src/hooks` - Custom hooks files (e.g `use-local-storage.tsx`).
 - `src/context` - Context.
-- `src/pages/api` - Define your serverless API routes in this folder.
 
 Feel free to modify the folder structure to fit the needs of your project.
 
