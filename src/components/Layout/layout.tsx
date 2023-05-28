@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import { Footer } from '../footer';
-import { Navbar } from '../navbar';
+
 
 type Props = {
   children: ReactNode;
@@ -29,13 +28,13 @@ const Layout = ({ children }: Props) => {
       </Head>
       <>
         {/* HEADER OR NAVBAR */}
-        <Navbar />
+        {/* <Navbar /> */}
 
         {/* MAIN PAGE */}
         <main>{children}</main>
 
         {/* FOOTER */}
-        <Footer />
+        {/* <Footer /> */}
       </>
     </>
   );
