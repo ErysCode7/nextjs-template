@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Image from 'next/image';
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
   subtitle: string;
 };
 
-const Card: NextPage<Props> = ({ imageUrl, subtitle, title }) => {
+const Card = ({ imageUrl, subtitle, title }: Props) => {
   return (
     <div className="bg-white shadow-md rounded hover:scale-[103%] transition duration-500">
       <div className="relative h-[300px] w-[300px] laptop:cursor-pointer">

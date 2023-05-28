@@ -1,12 +1,11 @@
 import { ROUTES } from '@/utils/constant';
-import type { NextPage } from 'next';
 import Image from 'next/image';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useHooks } from './hooks';
 
 type Props = {};
 
-const NavLinks: NextPage = () => {
+const NavLinks = () => {
   const { router, routes, pathname } = useHooks();
 
   return (
@@ -28,7 +27,7 @@ const NavLinks: NextPage = () => {
   );
 };
 
-const Navbar: NextPage<Props> = () => {
+const Navbar = () => {
   const { showMobileNavbar, setShowMobileNavbar, router } = useHooks();
 
   return (

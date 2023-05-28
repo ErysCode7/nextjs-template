@@ -12,6 +12,7 @@
 
 - `src` - main source code.
 - `src/pages` - page routes (e.g. `home`, `products`, `todos`, `etc.`).
+- `src/modules` - modules (e.g. `todos`, `products`).
 - `src/components` - page components (e.g. `common`, `Layout`, `some components`).
 - `src/styles` - css files (e.g `globals.css`).
 - `src/services` - api calls (e.g `products`, `todos`, `etc.`).

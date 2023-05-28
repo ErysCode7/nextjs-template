@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from 'react';
 
-type Props = {
+type AppContextProps = {
   children: ReactNode;
 };
 
@@ -15,7 +15,7 @@ export const AppContext = createContext<AppContextType>({
   setCount: () => {},
 });
 
-export const AppContextProvider = ({ children }: Props) => {
+export const AppContextProvider = ({ children }: AppContextProps) => {
   const [count, setCount] = useState(0);
 
   const value = {
