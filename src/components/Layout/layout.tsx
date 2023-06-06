@@ -26,6 +26,14 @@ const Layout = ({ children }: Props) => {
         />
         <meta name="author" content="Eryscode7, @mozoerys@gmail.com" />
         <meta name="application_name" content="Nextjs Template" />
+
+        {/* <!--  Open Graph / Facebook --> */}
+        <meta property="og:title" content="Nextjs Template Website" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Nextjs Template Website" />
+        <meta property="og:url" content="https://nextjs-template-eryscode7.vercel.app/" />
+        <meta property="og:image" content="/images/next.svg" />
+        <meta property="og:description" content="Nextjs Template Website" />
       </Head>
       <>
         {/* HEADER OR NAVBAR */}
