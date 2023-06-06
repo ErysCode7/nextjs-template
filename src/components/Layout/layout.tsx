@@ -32,7 +32,7 @@ const Layout = ({ children }: Props) => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Nextjs Template Website" />
         <meta property="og:url" content="https://nextjs-template-eryscode7.vercel.app/" />
-        <meta property="og:image" content="/images/next.svg" />
+        <meta property="og:image" content="/next.svg" />
         <meta property="og:description" content="Nextjs Template Website" />
       </Head>
       <>
