@@ -77,7 +77,7 @@ export const UseProductsApi = () => {
   const useProducts = () => {
     const { data: products, isLoading } = useQuery<Products[]>({
       queryKey: ['products'],
-      queryFn: () => fetchGetProducts(),
+      queryFn: async () => fetchGetProducts(),
     });
 
     return { products, isLoading };
@@ -89,7 +89,7 @@ export const UseProductsApi = () => {
       Products | unknown
     >({
       queryKey: ['product', productId],
-      queryFn: () => fetchGetProductDetails(productId),
+      queryFn: async () => fetchGetProductDetails(productId),
     } as { queryKey: QueryKey });
 
     return { productDetails, isLoadingProductDetails };

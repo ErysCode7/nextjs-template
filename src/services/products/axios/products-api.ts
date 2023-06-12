@@ -60,7 +60,7 @@ export const UseProductsApi = () => {
     // Everytime your filters change, react´query will refetch data, if your filters don't change, your data will remain
     const { data: products, isLoading } = useQuery<Products[]>({
       queryKey: ['products', params],
-      queryFn: () => axiosGetProducts(params),
+      queryFn: async () => axiosGetProducts(params),
     });
 
     return { products, isLoading };
@@ -70,7 +70,7 @@ export const UseProductsApi = () => {
   const useProductDetails = (productId: string | number) => {
     const { data: productDetails, isLoading: isLoadingProductDetails } = useQuery<Products>({
       queryKey: ['product', productId],
-      queryFn: () => axiosGetProductDetails(productId),
+      queryFn: async () => axiosGetProductDetails(productId),
     } as { queryKey: QueryKey });
 
     return { productDetails, isLoadingProductDetails };
