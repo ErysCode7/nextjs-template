@@ -58,22 +58,18 @@ export const UseProductsApi = () => {
   //api call to get all products
   const useProducts = (params?: string) => {
     // Everytime your filters change, react´query will refetch data, if your filters don't change, your data will remain
-    const { data: products, isLoading } = useQuery<Products[]>({
+    return useQuery<Products[]>({
       queryKey: ['products', params],
       queryFn: async () => axiosGetProducts(params),
     });
-
-    return { products, isLoading };
   };
 
   //api call to get a single product
   const useProductDetails = (productId: string | number) => {
-    const { data: productDetails, isLoading: isLoadingProductDetails } = useQuery<Products>({
+    return useQuery<Products>({
       queryKey: ['product', productId],
       queryFn: async () => axiosGetProductDetails(productId),
     } as { queryKey: QueryKey });
-
-    return { productDetails, isLoadingProductDetails };
   };
 
   // --------------- MUTATIONS ---------------

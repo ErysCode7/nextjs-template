@@ -16,7 +16,7 @@ const ProductsDetails = (props: Props) => {
   const { useProductDetails, axiosCreateProduct, axiosDeleteProduct, axiosUpdateProduct } =
     UseProductsApi();
 
-  const { productDetails, isLoadingProductDetails } = useProductDetails(productID);
+  const { data: productDetails, isLoading: isLoadingProductDetails } = useProductDetails(productID);
 
   //create a single product
   const { mutate: addProductMutation } = useMutation(axiosCreateProduct, {

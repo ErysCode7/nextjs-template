@@ -13,7 +13,7 @@ const Products = (props: Props) => {
 
   const filterState = sortState ? sortState : limitFilter;
 
-  const { products, isLoading } = useProducts(filterState);
+  const { data: products, isLoading } = useProducts(filterState);
 
   const handleSortFilter = (e: ChangeEvent<HTMLSelectElement>) => {
     setLimitFilter('');
