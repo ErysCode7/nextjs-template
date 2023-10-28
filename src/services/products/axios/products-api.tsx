@@ -1,10 +1,8 @@
-import { QueryKey, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { QueryKey, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { Products, baseUrl } from '../';
 
 export const useProductsApi = () => {
-  const queryClient = useQueryClient();
-
   //get all products
   const axiosGetProducts = async (params?: string): Promise<Products[]> => {
     try {
@@ -75,32 +73,31 @@ export const useProductsApi = () => {
   };
 
   // --------------- MUTATIONS ---------------
+  // const { mutate: addProductMutation } = useMutation(axiosCreateProduct, {
+  //   onSuccess: () => {
+  //     //when this succeed the query key invalidate meaning it triggers refetch
+  //     queryClient.invalidateQueries({ queryKey: ['products'] });
+  //   },
+  //   onError: () => {},
+  // });
 
-  const { mutate: addProductMutation } = useMutation(axiosCreateProduct, {
-    onSuccess: () => {
-      //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-    },
-    onError: () => {},
-  });
+  // //update a single product
+  // const { mutate: updateProductMutation } = useMutation(axiosUpdateProduct, {
+  //   onSuccess: () => {
+  //     //when this succeed the query key invalidate meaning it triggers refetch
+  //     queryClient.invalidateQueries({ queryKey: ['products'] });
+  //   },
+  //   onError: () => {},
+  // });
 
-  //update a single product
-  const { mutate: updateProductMutation } = useMutation(axiosUpdateProduct, {
-    onSuccess: () => {
-      //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-    },
-    onError: () => {},
-  });
-
-  //delete a single product
-  const { mutate: deleteProductMutation } = useMutation(axiosDeleteProduct, {
-    onSuccess: () => {
-      //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-    },
-    onError: () => {},
-  });
+  // //delete a single product
+  // const { mutate: deleteProductMutation } = useMutation(axiosDeleteProduct, {
+  //   onSuccess: () => {
+  //     //when this succeed the query key invalidate meaning it triggers refetch
+  //     queryClient.invalidateQueries({ queryKey: ['products'] });
+  //   },
+  //   onError: () => {},
+  // });
 
   return {
     axiosGetProducts,
@@ -111,9 +108,5 @@ export const useProductsApi = () => {
     // ----- API CALL REACT QUERY -----
     useProducts,
     useProductDetails,
-    // ----- MUTATIONS -----
-    addProductMutation,
-    updateProductMutation,
-    deleteProductMutation,
   };
 };
