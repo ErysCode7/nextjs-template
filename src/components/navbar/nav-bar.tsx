@@ -1,4 +1,4 @@
-import { ROUTES } from '@/utils/constant';
+import { ROUTES } from '@/utils/constants';
 import Image from 'next/image';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useNavbarHooks } from './hooks/hooks';

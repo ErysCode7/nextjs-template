@@ -1,4 +1,4 @@
-import { ROUTES } from '@/utils/constant';
+import { ROUTES } from '@/utils/constants';
 import { useRouter } from 'next/router';
 
 const Footer = () => {

@@ -1,5 +1,5 @@
 import { useProductsApi } from '@/services/products/axios/products-api';
-import { ROUTES } from '@/utils/constant';
+import { ROUTES } from '@/utils/constants';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { BsArrowLeftShort } from 'react-icons/bs';
