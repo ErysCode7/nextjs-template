@@ -3,11 +3,11 @@ import { ReactNode } from 'react';
 import { Footer } from '../footer';
 import { Navbar } from '../navbar';
 
-type Props = {
+type LayoutProps = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Head>

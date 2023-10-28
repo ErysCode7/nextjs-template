@@ -13,3 +13,13 @@ body {
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@layer components {
+  .page-layout {
+    @apply h-screen w-full flex flex-col items-center justify-center gap-2;
+  }
+
+  .page-layout__title {
+    @apply text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold;
+  }
+}

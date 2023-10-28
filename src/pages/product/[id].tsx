@@ -1,13 +1,13 @@
 import { ProductsDetails } from '@/modules/product';
-import { UseProductsApi } from '@/services/products/axios/products-api';
+import { useProductsApi } from '@/services/products/axios/products-api';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import type { GetServerSideProps, NextPage } from 'next';
 
-type Props = {
+type ProductDetailsPageProps = {
   isError: boolean;
 };
 
-const ProductDetailsPage: NextPage<Props> = ({ isError }) => {
+const ProductDetailsPage: NextPage<ProductDetailsPageProps> = ({ isError }) => {
   if (isError) {
     return (
       <div className="h-screen w-full flex items-center justify-center">
@@ -30,7 +30,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   const queryClient = new QueryClient();
 
-  const { axiosGetProductDetails } = UseProductsApi();
+  /* eslint-disable */
+  const { axiosGetProductDetails } = useProductsApi();
 
   let isError = false;
 

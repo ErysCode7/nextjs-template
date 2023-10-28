@@ -1,13 +1,12 @@
 import { Products } from '@/services/products';
-import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-type Props = {
+type ProductProps = {
   product: Products;
 };
 
-const Product: NextPage<Props> = ({ product }) => {
+const Product = ({ product }: ProductProps) => {
   const router = useRouter();
 
   return (

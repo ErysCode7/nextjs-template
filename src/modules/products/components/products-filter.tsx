@@ -1,19 +1,18 @@
-import type { NextPage } from 'next';
 import { ChangeEvent } from 'react';
 
-type Props = {
+type ProductsFilterProps = {
   sortState: string;
   limitFilter: string;
   handleSortFilter: (e: ChangeEvent<HTMLSelectElement>) => void;
   handleLimitFilter: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const ProductsFilter: NextPage<Props> = ({
+const ProductsFilter = ({
   sortState,
   limitFilter,
   handleSortFilter,
   handleLimitFilter,
-}) => {
+}: ProductsFilterProps) => {
   return (
     <div className="my-5 flex items-center gap-5">
       <select

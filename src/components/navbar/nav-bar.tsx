@@ -1,34 +1,17 @@
 import { ROUTES } from '@/utils/constant';
 import Image from 'next/image';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useHooks } from './hooks';
+import { useNavbarHooks } from './hooks/hooks';
 
-type Props = {};
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-const NavLinks = () => {
-  const { router, routes, pathname } = useHooks();
-
-  return (
-    <>
-      {routes.map(route => {
-        return (
-          <li
-            onClick={() => router.push(route.routes)}
-            key={route.id}
-            className={`lg:cursor-pointer text-gray-500 hover:text-blue-500 lg:mt-0 h-20 flex items-center justify-center w-full text-center ${
-              pathname === route.routes ? 'bg-gray-100 lg:bg-transparent' : null
-            }`}
-          >
-            {route.route}
-          </li>
-        );
-      })}
-    </>
-  );
-};
+const NavLinks = dynamic(() => import('./components/nav-links'));
 
 const Navbar = () => {
-  const { showMobileNavbar, setShowMobileNavbar, router } = useHooks();
+  const { router } = useNavbarHooks();
+
+  const [showMobileNavbar, setShowMobileNavbar] = useState(false);
 
   return (
     <nav className="w-full h-20 shadow-sm bg-white">

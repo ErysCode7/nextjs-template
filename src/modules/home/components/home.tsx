@@ -1,8 +1,6 @@
 import Image from 'next/image';
 
-type Props = {};
-
-const Home = (props: Props) => {
+const Home = () => {
   return (
     <div className="flex flex-col md:flex-row gap-2 md:gap-3 lg:gap-5 items-center justify-center h-[calc(100vh_-_80px)]">
       <div className="relative h-[70px] w-[250px]  md:h-[300px] mobile:w-[300px]">

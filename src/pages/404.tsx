@@ -1,9 +1,7 @@
-import { NotFound } from '@/modules/404';
+import { NotFound } from '@/modules/not-found';
 import type { NextPage } from 'next';
 
-type Props = {};
-
-const NotFoundPage: NextPage<Props> = () => {
+const NotFoundPage: NextPage = () => {
   return (
     <>
       <NotFound />

@@ -1,9 +1,7 @@
 import { ROUTES } from '@/utils/constant';
 import { useRouter } from 'next/router';
 
-type Props = {};
-
-const NotFoundPage = (props: Props) => {
+const NotFound = () => {
   const router = useRouter();
 
   return (
@@ -20,4 +18,4 @@ const NotFoundPage = (props: Props) => {
   );
 };
 
-export default NotFoundPage;
+export default NotFound;

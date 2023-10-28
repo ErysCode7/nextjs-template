@@ -1,10 +1,7 @@
 import { ROUTES } from '@/utils/constant';
-import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-type Props = {};
-
-const Footer: NextPage<Props> = () => {
+const Footer = () => {
   const router = useRouter();
 
   const date = new Date().getFullYear();

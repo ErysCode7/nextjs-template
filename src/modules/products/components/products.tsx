@@ -1,15 +1,16 @@
-import { UseProductsApi } from '@/services/products/axios/products-api';
+import { useProductsApi } from '@/services/products/axios/products-api';
 import { ChangeEvent, useState } from 'react';
-import Product from './product';
-import ProductsFilter from './products-filter';
 
-type Props = {};
+import dynamic from 'next/dynamic';
 
-const Products = (props: Props) => {
-  const [sortState, setSortState] = useState(``);
-  const [limitFilter, setLimitFilter] = useState(``);
+const Product = dynamic(() => import('./product'));
+const ProductsFilter = dynamic(() => import('./products-filter'));
 
-  const { useProducts } = UseProductsApi();
+const Products = () => {
+  const [sortState, setSortState] = useState('');
+  const [limitFilter, setLimitFilter] = useState('');
+
+  const { useProducts } = useProductsApi();
 
   const filterState = sortState ? sortState : limitFilter;
 

@@ -9,7 +9,7 @@
       "url": "https://github.com/ErysCode7"
     }
   ],
-  "description": "Custom Template for Next TypeScript",
+  "description": "Custom Template for Nextjs TypeScript",
   "author": "Erys Mozo <mozoerys@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -25,11 +25,11 @@
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.10",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
     "framer-motion": "^10.12.12",
     "millify": "^6.1.0",
-    "moment": "^2.29.4",
     "next": "13.3.4",
     "next-auth": "^4.22.1",
     "nprogress": "^0.2.0",

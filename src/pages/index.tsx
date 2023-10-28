@@ -2,9 +2,7 @@ import { Home } from '@/modules/home';
 import type { GetServerSideProps, NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 
-type Props = {};
-
-const HomePage: NextPage<Props> = () => {
+const HomePage: NextPage = () => {
   return (
     <>
       <Home />

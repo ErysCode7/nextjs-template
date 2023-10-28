@@ -1,49 +1,19 @@
-import { UseProductsApi } from '@/services/products/axios/products-api';
+import { useProductsApi } from '@/services/products/axios/products-api';
 import { ROUTES } from '@/utils/constant';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { BsArrowLeftShort } from 'react-icons/bs';
 
-type Props = {};
-
-const ProductsDetails = (props: Props) => {
-  const queryClient = useQueryClient();
-
+const ProductsDetails = () => {
   const router = useRouter();
   const productID = router?.query?.id as string | number;
 
-  const { useProductDetails, axiosCreateProduct, axiosDeleteProduct, axiosUpdateProduct } =
-    UseProductsApi();
+  const {
+    // ----- API CALL REACT QUERY -----
+    useProductDetails,
+  } = useProductsApi();
 
   const { data: productDetails, isLoading: isLoadingProductDetails } = useProductDetails(productID);
-
-  //create a single product
-  const { mutate: addProductMutation } = useMutation(axiosCreateProduct, {
-    onSuccess: () => {
-      //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-    },
-    onError: () => {},
-  });
-
-  //update a single product
-  const { mutate: updateProductMutation } = useMutation(axiosUpdateProduct, {
-    onSuccess: () => {
-      //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-    },
-    onError: () => {},
-  });
-
-  //delete a single product
-  const { mutate: deleteProductMutation } = useMutation(axiosDeleteProduct, {
-    onSuccess: () => {
-      //when this succeed the query key invalidate meaning it triggers refetch
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-    },
-    onError: () => {},
-  });
 
   if (isLoadingProductDetails) {
     return (

@@ -1,3 +1,1 @@
-import Todos from "./components/todos";
-
-export { Todos }
+export { default as Todos } from './components/todos';

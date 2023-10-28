@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-type Props = {
+type CardProps = {
   imageUrl: string;
   title: string;
   subtitle: string;
 };
 
-const Card = ({ imageUrl, subtitle, title }: Props) => {
+const Card = ({ imageUrl, subtitle, title }: CardProps) => {
   return (
     <div className="bg-white shadow-md rounded hover:scale-[103%] transition duration-500">
       <div className="relative h-[300px] w-[300px] laptop:cursor-pointer">

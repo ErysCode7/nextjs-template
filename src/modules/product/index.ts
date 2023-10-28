@@ -1,3 +1,1 @@
-import ProductsDetails from "./components/product-details";
-
-export { ProductsDetails }
+export { default as ProductsDetails } from './components/product-details';

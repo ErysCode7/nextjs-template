@@ -1,9 +1,7 @@
 import { Todos } from '@/modules/todos';
 import type { NextPage } from 'next';
 
-type Props = {};
-
-const TodosPage: NextPage<Props> = () => {
+const TodosPage: NextPage = () => {
   return (
     <>
       <Todos />
