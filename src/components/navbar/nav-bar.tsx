@@ -29,6 +29,7 @@ const Navbar = () => {
             width={120}
             height={120}
             onClick={() => router.push(ROUTES.HOME)}
+            className="lg:cursor-pointer"
           />
         </div>
 
