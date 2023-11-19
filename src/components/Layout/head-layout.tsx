@@ -1,13 +1,11 @@
 import Head from 'next/head';
-import { ReactNode } from 'react';
-import { Footer } from '../footer';
-import { Navbar } from '../navbar';
+import React, { ReactNode } from 'react';
 
-type LayoutProps = {
+type HeadLayoutProps = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const HeadLayout = ({ children }: HeadLayoutProps) => {
   return (
     <>
       <Head>
@@ -37,18 +35,11 @@ const Layout = ({ children }: LayoutProps) => {
         <meta property="og:image:height" content="350" />
         <meta property="og:description" content="Nextjs Template Website" />
       </Head>
-      <>
-        {/* HEADER OR NAVBAR */}
-        <Navbar />
 
-        {/* MAIN PAGE */}
-        <main>{children}</main>
-
-        {/* FOOTER */}
-        <Footer />
-      </>
+      {/* MAIN PAGE */}
+      <React.Fragment>{children}</React.Fragment>
     </>
   );
 };
 
-export default Layout;
+export default HeadLayout;

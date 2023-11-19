@@ -1,4 +1,5 @@
-import Layout from '@/components/Layout/layout';
+import HeadLayout from '@/components/Layout/head-layout';
+import MainLayout from '@/components/Layout/main-layout';
 import { AppContextProvider } from '@/context/app-context';
 import useNProgress from '@/hooks/use-nprogress';
 import '@/styles/globals.css';
@@ -7,7 +8,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
-import '../styles/globals.css';
 
 const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
@@ -20,9 +20,11 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
         <Hydrate state={pageProps.dehydratedState}>
           <ReactQueryDevtools initialIsOpen={false} />
           <AppContextProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <HeadLayout>
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
+            </HeadLayout>
           </AppContextProvider>
         </Hydrate>
       </QueryClientProvider>
