@@ -1,4 +1,4 @@
-import { useGetProducts } from '@/services/products/axios/productS-queries';
+import { useGetProducts } from '@/services/products/axios/products-queries';
 import { ChangeEvent, useState } from 'react';
 
 import dynamic from 'next/dynamic';

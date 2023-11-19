@@ -1,4 +1,4 @@
-import { useGetProductDetails } from '@/services/products/axios/productS-queries';
+import { useGetProductDetails } from '@/services/products/axios/products-queries';
 import { ROUTES } from '@/utils/constants';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
