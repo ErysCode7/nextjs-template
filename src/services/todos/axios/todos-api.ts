@@ -3,7 +3,7 @@ import { Todos, baseUrl } from '../';
 
 //axios way
 
-//create
+// CREATE
 const axiosCreateTodos = async (todo: Todos): Promise<Todos[] | unknown> => {
   try {
     const response = await axios.post(`${baseUrl}`, todo);
@@ -14,12 +14,12 @@ const axiosCreateTodos = async (todo: Todos): Promise<Todos[] | unknown> => {
 };
 
 // READ
-const axiosGetTodos = async (): Promise<Todos[] | unknown> => {
+const axiosGetTodos = async (page: number): Promise<Todos[]> => {
   try {
-    const response = await axios.get(baseUrl);
+    const response = await axios.get(`${baseUrl}${page ? `?_page=${page}` : ''}`);
     return response.data;
   } catch (err) {
-    return err;
+    return [];
   }
 };
 
@@ -33,7 +33,7 @@ const axiosUpdateTodo = async (id: string | number, todo: Todos) => {
   }
 };
 
-//delete
+// DELETE
 const axiosDeleteTodo = async (id: string | number): Promise<Todos[] | unknown> => {
   try {
     const response = await axios.delete(`${baseUrl}/${id}`);
@@ -43,4 +43,4 @@ const axiosDeleteTodo = async (id: string | number): Promise<Todos[] | unknown> 
   }
 };
 
-export { axiosCreateTodos, axiosGetTodos, axiosUpdateTodo, axiosDeleteTodo };
+export { axiosCreateTodos, axiosDeleteTodo, axiosGetTodos, axiosUpdateTodo };
