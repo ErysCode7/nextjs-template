@@ -1,31 +1,8 @@
+import { FormSchema, FormSchemaType } from '@/lib/validation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import z from 'zod';
 
 const Form = () => {
-  const FormSchema = z
-    .object({
-      firstName: z
-        .string()
-        .min(3, { message: 'Maximum of 3 characters' })
-        .max(40, { message: 'Maximum of 40 characters' }),
-      lastName: z.string().min(3).max(40),
-      email: z.string().min(5).max(30).email({
-        message: 'Must be a valid email',
-      }),
-      terms: z.literal(true, {
-        errorMap: () => ({ message: 'You must accept Terms and Conditions' }),
-      }),
-      password: z.string().min(6, { message: 'Password must be atleast 6 characters' }),
-      confirmPassword: z.string(),
-    })
-    .refine(data => data.password === data.confirmPassword, {
-      path: ['confirmPassword'],
-      message: "Password don't match",
-    });
-
-  type FormSchemaType = z.infer<typeof FormSchema>;
-
   const {
     register,
     handleSubmit,
