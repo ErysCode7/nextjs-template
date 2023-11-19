@@ -1,5 +1,6 @@
 import { ProductsDetails } from '@/modules/product';
-import { useProductsApi } from '@/services/products/axios/products-api';
+import { axiosGetProductDetails } from '@/services/products/axios/products-api';
+import { QUERY_KEYS } from '@/services/products/axios/products-keys';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import type { GetServerSideProps, NextPage } from 'next';
 
@@ -30,14 +31,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   const queryClient = new QueryClient();
 
-  /* eslint-disable */
-  const { axiosGetProductDetails } = useProductsApi();
-
   let isError = false;
 
   try {
     await queryClient.fetchQuery({
-      queryKey: ['product', productID],
+      queryKey: [QUERY_KEYS.GET_SINGLE_PRODUCT, productID],
       queryFn: () => axiosGetProductDetails(productID),
     });
   } catch (err) {
